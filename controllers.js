@@ -1,9 +1,14 @@
-//controllers
-weatherApp.controller('homepageController', ['$scope','cityService', function($scope, cityService){
+//CONTROLLERS
+// homapage controller
+weatherApp.controller('homepageController', ['$scope','cityService','$location', function($scope, cityService, $location){
     $scope.city = cityService.city;
     $scope.$watch('city', function(){
         cityService.city = $scope.city;
-    });
+    });   
+                  
+    $scope.submit = function(){
+        $location.path('/forecast');                       
+    }
 }]);
 
 //forecast controller
